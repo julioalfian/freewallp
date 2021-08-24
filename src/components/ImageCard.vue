@@ -13,9 +13,9 @@
           <div class="size">{{ dataImage.size_featured_image }}</div>
         </div>
         <div class="image-info-right">
-          <div class="download">
+          <a :href="dataImage.featured_image" class="download" :download="dataImage.title" target="_blank">
             <vue-fontawesome icon="download" />
-          </div>
+          </a>
         </div>
       </div>
     </div>
@@ -23,6 +23,7 @@
 </template>
 
 <script>
+
 export default {
   name: "card image",
   props: ["dataImage"],

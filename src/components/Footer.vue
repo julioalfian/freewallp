@@ -2,7 +2,7 @@
 	<div class="footer mt-5">
     <div class="container">
       <div class="top">
-        Julio Alfian
+        Freewallp
       </div>
       <div class="bottom">
         @2021 Copyright

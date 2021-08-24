@@ -1,5 +1,6 @@
 <template>
   <div class="home">
+    <Modal v-if="modal.showModal"/>
     <Hero />
     <div class="category">
       <div class="container">
@@ -16,6 +17,7 @@
         </swiper>
       </div>
     </div>
+    <p>{{ modal.showModal }}</p>
     <div class="content-section">
       <div class="content-container">
         <div class="row">
@@ -31,6 +33,10 @@
 <script>
 import Hero from "@/components/Hero.vue";
 import Card from "@/components/ImageCard.vue";
+import Modal from "@/components/Modal.vue";
+
+//import { mapState } from 'vuex'
+
 import axios from "axios";
 import { swiper, swiperSlide } from "vue-awesome-swiper";
 
@@ -41,6 +47,7 @@ export default {
     Card,
     swiper,
     swiperSlide,
+    Modal
   },
   data() {
     return {
@@ -66,6 +73,9 @@ export default {
       .get("http://wallapi.plucon.co/api/category/single/fcae766e-50d1-47ab-970f-37429f089e10")
       .then((response) => this.setData(response.data))
       .catch((error) => console.log(error));
+  },
+  computed: {
+    modal() { return this.$store.state.modalData }
   },
   methods: {
     setCategory(data) {
@@ -135,6 +145,7 @@ export default {
   }
 }
 .content-section{
+  padding: 50px 0;
   .content-container{
     width: 95vw;
     margin: 0 auto;
